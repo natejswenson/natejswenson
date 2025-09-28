@@ -13,7 +13,7 @@
 
 ## 👋 About Me
 
-**Results-driven cloud and AWS professional** currently working at **GoodLeap** (Remote) with expertise in software engineering and agile methodologies. Passionate about AI-driven development and innovative technology solutions that make a positive impact on communities worldwide.
+**DevOps Engineer** currently working at **GoodLeap**  with expertise in software engineering and cloud . Passionate about AI-driven development and innovative technology solutions that make a positive impact.
 
 ## 🛠️ Technical Expertise
 
@@ -61,9 +61,7 @@
 > *Driving innovation in sustainable energy financing through cloud-first solutions*
 
 - ☁️ **Cloud Architecture:** Designing and implementing scalable AWS solutions
-- 🔄 **Agile Leadership:** Leading development teams using Scrum and SAFe methodologies
-- 🚀 **Innovation:** Contributing to hackathon-winning architectural solutions
-- 🌱 **Impact:** Supporting clean energy accessibility through technology
+
 
 ## 📊 GitHub Activity
 
