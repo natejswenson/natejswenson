@@ -60,9 +60,23 @@ describe('README.md Content Validation', () => {
       expect(readmeContent).toMatch(/automation/i);
     });
 
+    test('should include specific DevOps technologies', () => {
+      expect(readmeContent).toMatch(/Datadog/i);
+      expect(readmeContent).toMatch(/Terraform/i);
+      expect(readmeContent).toMatch(/AWS/i);
+      expect(readmeContent).toMatch(/Containers/i);
+      expect(readmeContent).toMatch(/EKS/i);
+    });
+
     test('should mention Development expertise', () => {
       expect(readmeContent).toMatch(/Development|Software Engineering/i);
       expect(readmeContent).toMatch(/programming|coding/i);
+    });
+
+    test('should include specific Development languages', () => {
+      expect(readmeContent).toMatch(/Python/i);
+      expect(readmeContent).toMatch(/Javascript/i);
+      expect(readmeContent).toMatch(/shell/i);
     });
 
     test('should include Operations and infrastructure', () => {
@@ -79,6 +93,14 @@ describe('README.md Content Validation', () => {
     test('should include Agentic Automation', () => {
       expect(readmeContent).toMatch(/Agentic.*Automation|Automation.*Agentic/i);
       expect(readmeContent).toMatch(/intelligent.*automation|automation.*intelligent/i);
+    });
+
+    test('should include specific AI technologies', () => {
+      expect(readmeContent).toMatch(/Agentic.*workflows|workflows.*Agentic/i);
+      expect(readmeContent).toMatch(/Chatbots/i);
+      expect(readmeContent).toMatch(/Claude.*Code|Claude Code/i);
+      expect(readmeContent).toMatch(/Cursor/i);
+      expect(readmeContent).toMatch(/Bedrock/i);
     });
 
     test('should mention Test-Driven Development', () => {
@@ -131,17 +153,9 @@ describe('README.md Content Validation', () => {
     });
   });
 
-  describe('FR7: Languages and proficiency levels', () => {
-    test('should list English as native language', () => {
-      expect(readmeContent).toMatch(/English.*Native|Native.*English/i);
-    });
-
-    test('should mention Spanish proficiency', () => {
-      expect(readmeContent).toMatch(/Spanish.*Elementary|Elementary.*Spanish/i);
-    });
-
-    test('should include American Sign Language', () => {
-      expect(readmeContent).toMatch(/American Sign Language|ASL/i);
+  describe('FR7: Section validation', () => {
+    test('should not include Languages section', () => {
+      expect(readmeContent).not.toMatch(/##.*Languages.*Communication|##.*Languages/i);
     });
   });
 
@@ -154,14 +168,14 @@ describe('README.md Content Validation', () => {
       expect(readmeContent).toMatch(/solar.*power|solar.*installation/i);
     });
 
-    test('should mention youth coaching', () => {
-      expect(readmeContent).toMatch(/youth.*coaching|coaching.*youth/i);
+    test('should not mention youth coaching separately', () => {
+      expect(readmeContent).not.toMatch(/##.*Youth.*Development|Youth.*Coaching/i);
     });
   });
 
-  describe('FR9: Featured repositories and projects', () => {
-    test('should have a section for featured projects or repositories', () => {
-      expect(readmeContent).toMatch(/Featured.*Projects|Projects.*Featured|Featured.*Repositories|Repositories.*Featured/i);
+  describe('FR9: Section management', () => {
+    test('should not have a Featured Projects section', () => {
+      expect(readmeContent).not.toMatch(/##.*Featured.*Projects|##.*Featured.*Repositories/i);
     });
   });
 

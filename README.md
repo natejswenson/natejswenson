@@ -38,16 +38,18 @@ As a motivated professional, I thrive in collaborative environments, working clo
 ### Core Competencies
 
 **🚀 DevOps Engineering**
-- Continuous Integration/Continuous Deployment (CI/CD) pipeline design and implementation
-- Infrastructure automation and orchestration
-- Configuration management and version control systems
-- Monitoring, observability, and intelligent automation solutions
+- **Monitoring & Observability:** Datadog for comprehensive application and infrastructure monitoring
+- **Infrastructure as Code:** Terraform for automated provisioning and configuration management
+- **Cloud Platforms:** AWS services integration and optimization
+- **Container Orchestration:** Containers and EKS (Elastic Kubernetes Service) deployment strategies
+- **CI/CD Pipelines:** Automated build, test, and deployment workflows
 
 **💻 Development & Programming**
-- Software engineering with cloud-native programming practices
-- Test-Driven Development (TDD) and automated testing frameworks
-- Microservices architecture and API development
-- Code quality, security, and performance optimization
+- **Python:** Backend development, automation scripts, and data processing
+- **JavaScript:** Frontend and full-stack web development
+- **Shell Scripting:** Automation, system administration, and DevOps tooling
+- **Cloud-Native Development:** Microservices architecture and API design
+- **Test-Driven Development (TDD):** Automated testing and code quality assurance
 
 **⚙️ Operations & Infrastructure**
 - Infrastructure as Code (IaC) with Terraform and CloudFormation
@@ -56,10 +58,11 @@ As a motivated professional, I thrive in collaborative environments, working clo
 - High availability, scalability, and disaster recovery planning
 
 **🤖 AI & Agentic Automation**
-- Artificial Intelligence and Machine Learning integration
-- Intelligent automation and agentic workflow design
-- AI-driven monitoring and self-healing infrastructure
-- Automated decision-making systems and smart operations
+- **Agentic Workflows:** Designing intelligent, autonomous task automation systems
+- **Chatbots:** Building conversational AI interfaces and customer service automation
+- **Claude Code:** AI-powered development assistance and code generation
+- **Cursor:** Enhanced coding productivity with AI-driven development tools
+- **AWS Bedrock:** Foundation model integration and AI service orchestration
 
 
 ## 💼 Professional Experience
@@ -82,39 +85,17 @@ As a motivated professional, I thrive in collaborative environments, working clo
 
 </div>
 
-## 🚀 Featured Projects
-
-<div align="center">
-
-*🔧 Curating a showcase of innovative projects and solutions - Stay tuned!*
-
-*Projects will highlight cloud architecture, AI implementations, and humanitarian technology applications*
-
-</div>
 
 ## 🌍 Impact & Community
 
-### 🌞 GivePower - Solar Energy Volunteer
+### 🌞 GivePower - Volunteer
 > *Bringing sustainable energy to underserved communities worldwide*
 
 - **Mission:** Installing solar power systems in remote villages
 - **Impact:** Providing clean, reliable electricity to communities without grid access
 - **Technology:** Leveraging renewable energy solutions for humanitarian aid
+- **Commitment:** Dedicated to using technology for positive global impact
 
-### 👨‍🏫 Youth Development & Coaching
-> *Investing in the next generation through mentorship and guidance*
-
-- **Community Leadership:** Active in local youth coaching programs
-- **Mentorship:** Sharing technology and professional development insights
-- **Impact:** Helping young people develop leadership and technical skills
-
-## 🌐 Languages & Communication
-
-| Language | Proficiency | Context |
-|----------|-------------|---------|
-| 🇺🇸 **English** | Native | Professional & Personal |
-| 🇪🇸 **Spanish** | Elementary | Travel & Cultural Exchange |
-| 🤟 **American Sign Language (ASL)** | Limited Working | Accessibility & Inclusion |
 
 ## 🎓 Educational Foundation
 
