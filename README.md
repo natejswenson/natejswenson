@@ -1,7 +1,7 @@
 <div align="center">
 
 # Nate Swenson
-### Cloud & AWS Professional | Software Engineer | Agile Expert
+### Cloud and DevOps Professional | AWS Solutions Architect | Terraform and Container Expert
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-natejswenson-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/natejswenson)
 [![Website](https://img.shields.io/badge/Website-Portfolio-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)](https://natejswenson.github.io/my-resume/)
@@ -13,7 +13,15 @@
 
 ## 👋 About Me
 
-**DevOps Engineer** currently working at **GoodLeap**  with expertise in software engineering and cloud . Passionate about AI-driven development and innovative technology solutions that make a positive impact.
+I'm **Nate J. Swenson**, a results-driven professional specializing in Cloud and AWS with a strong focus on DevOps practices. With a solid background in software development and infrastructure management, I excel in leveraging cloud technologies to optimize system performance, scalability, and reliability.
+
+Throughout my career, I have successfully designed and implemented cloud-based solutions on AWS, utilizing services such as EC2, S3, Lambda, EKS, ECS, and CloudFormation. I am highly skilled in infrastructure-as-code (IaC) principles and have extensive experience with Terraform, enabling streamlined provisioning and automation of cloud resources.
+
+Furthermore, I have expertise in deploying and managing applications in containerized environments using Kubernetes on AWS EKS. I have worked with Docker extensively, ensuring efficient container orchestration and seamless application deployment. Most recently leveraging ArgoCD to manage EKS deployments.
+
+My proficiency extends to monitoring and troubleshooting cloud environments using AWS CloudWatch and other monitoring tools such as DataDog to ensure high availability and optimal performance. I am also skilled in implementing security best practices and maintaining compliance in AWS environments.
+
+As a motivated professional, I thrive in collaborative environments, working closely with cross-functional teams to drive successful cloud deployments and DevOps practices. I am constantly seeking opportunities to enhance my skills and stay abreast of the latest advancements in cloud technologies.
 
 ## 🛠️ Technical Expertise
 

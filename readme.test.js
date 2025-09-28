@@ -17,8 +17,9 @@ describe('README.md Content Validation', () => {
     });
 
     test('should contain current role indicators', () => {
-      expect(readmeContent).toMatch(/Cloud.*AWS|AWS.*Cloud/i);
-      expect(readmeContent).toContain('GoodLeap');
+      expect(readmeContent).toMatch(/Cloud.*DevOps|DevOps.*Cloud/i);
+      expect(readmeContent).toMatch(/AWS Solutions Architect/i);
+      expect(readmeContent).toMatch(/Terraform.*Container|Container.*Terraform/i);
     });
   });
 
@@ -26,6 +27,31 @@ describe('README.md Content Validation', () => {
     test('should list AWS and Cloud Computing skills', () => {
       expect(readmeContent).toMatch(/AWS|Amazon Web Services/i);
       expect(readmeContent).toMatch(/Cloud Computing|Cloud/i);
+    });
+
+    test('should include specific AWS services', () => {
+      expect(readmeContent).toMatch(/EC2/i);
+      expect(readmeContent).toMatch(/S3/i);
+      expect(readmeContent).toMatch(/Lambda/i);
+      expect(readmeContent).toMatch(/EKS/i);
+      expect(readmeContent).toMatch(/ECS/i);
+      expect(readmeContent).toMatch(/CloudFormation/i);
+    });
+
+    test('should mention Infrastructure as Code and Terraform', () => {
+      expect(readmeContent).toMatch(/Terraform/i);
+      expect(readmeContent).toMatch(/infrastructure.*code|IaC/i);
+    });
+
+    test('should include container and Kubernetes technologies', () => {
+      expect(readmeContent).toMatch(/Kubernetes/i);
+      expect(readmeContent).toMatch(/Docker/i);
+      expect(readmeContent).toMatch(/ArgoCD/i);
+    });
+
+    test('should mention monitoring tools', () => {
+      expect(readmeContent).toMatch(/CloudWatch/i);
+      expect(readmeContent).toMatch(/DataDog/i);
     });
 
     test('should include Agile certifications', () => {
@@ -44,8 +70,13 @@ describe('README.md Content Validation', () => {
       expect(readmeContent).toContain('GoodLeap');
     });
 
-    test('should indicate remote work', () => {
-      expect(readmeContent).toMatch(/Remote|remote/);
+    test('should describe DevOps and cloud expertise', () => {
+      expect(readmeContent).toMatch(/DevOps.*practices|practices.*DevOps/i);
+      expect(readmeContent).toMatch(/cloud.*solutions|solutions.*cloud/i);
+    });
+
+    test('should indicate collaborative work experience', () => {
+      expect(readmeContent).toMatch(/cross-functional.*teams|teams.*cross-functional/i);
     });
   });
 
