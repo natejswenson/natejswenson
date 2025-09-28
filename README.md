@@ -137,7 +137,7 @@ mindmap
 <div align="center">
 
 ### 🤝 I'm always excited to collaborate on projects involving:
-**Cloud Computing** • **AI/ML Applications** • **Humanitarian Technology** • **Sustainable Energy Solutions**
+**Cloud Computing** • **AI/ML Applications**
 
 <br>
 

@@ -200,6 +200,22 @@ describe('README.md Content Validation', () => {
     test('should include collaboration invitation', () => {
       expect(readmeContent).toMatch(/collaborate|collaboration|connect|contact/i);
     });
+
+    test('should include Cloud Computing collaboration type', () => {
+      expect(readmeContent).toMatch(/Cloud Computing/i);
+    });
+
+    test('should include AI/ML Applications collaboration type', () => {
+      expect(readmeContent).toMatch(/AI\/ML Applications|AI.*ML.*Applications/i);
+    });
+
+    test('should not include Humanitarian Technology collaboration type', () => {
+      expect(readmeContent).not.toMatch(/Humanitarian Technology/i);
+    });
+
+    test('should not include Sustainable Energy Solutions collaboration type', () => {
+      expect(readmeContent).not.toMatch(/Sustainable Energy Solutions/i);
+    });
   });
 
   describe('Non-Functional Requirements', () => {
