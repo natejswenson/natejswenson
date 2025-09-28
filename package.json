@@ -1,0 +1,27 @@
+{
+  "name": "natejswenson-profile",
+  "version": "1.0.0",
+  "description": "Nate Swenson's GitHub Profile README",
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "eslint": "^8.57.0",
+    "@types/jest": "^29.5.8"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    }
+  }
+}
