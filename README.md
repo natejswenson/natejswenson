@@ -37,32 +37,29 @@ As a motivated professional, I thrive in collaborative environments, working clo
 
 ### Core Competencies
 
-**🚀 DevOps Engineering**
-- **Monitoring & Observability:** Datadog for comprehensive application and infrastructure monitoring
-- **Infrastructure as Code:** Terraform for automated provisioning and configuration management
-- **Cloud Platforms:** AWS services integration and optimization
-- **Container Orchestration:** Containers and EKS (Elastic Kubernetes Service) deployment strategies
-- **CI/CD Pipelines:** Automated build, test, and deployment workflows
+<div align="center">
 
-**💻 Development & Programming**
-- **Python:** Backend development, automation scripts, and data processing
-- **JavaScript:** Frontend and full-stack web development
-- **Shell Scripting:** Automation, system administration, and DevOps tooling
-- **Cloud-Native Development:** Microservices architecture and API design
-- **Test-Driven Development (TDD):** Automated testing and code quality assurance
+| **🚀 DevOps & Cloud** | **Skill Level** | **💻 Development** | **Skill Level** |
+|:---|:---:|:---|:---:|
+| AWS | `█████████░` 9/10 | Python | `████████░░` 8/10 |
+| Terraform | `████████░░` 8/10 | JavaScript | `███████░░░` 7/10 |
+| Datadog | `████████░░` 8/10 | Shell | `█████████░` 9/10 |
+| Containers | `████████░░` 8/10 | TDD | `████████░░` 8/10 |
+| EKS/Kubernetes | `███████░░░` 7/10 | Git | `█████████░` 9/10 |
 
-**⚙️ Operations & Infrastructure**
-- Infrastructure as Code (IaC) with Terraform and CloudFormation
-- Container orchestration using Kubernetes and Docker
-- System monitoring, troubleshooting, and performance tuning
-- High availability, scalability, and disaster recovery planning
+</div>
 
-**🤖 AI & Agentic Automation**
-- **Agentic Workflows:** Designing intelligent, autonomous task automation systems
-- **Chatbots:** Building conversational AI interfaces and customer service automation
-- **Claude Code:** AI-powered development assistance and code generation
-- **Cursor:** Enhanced coding productivity with AI-driven development tools
-- **AWS Bedrock:** Foundation model integration and AI service orchestration
+<div align="center">
+
+| **🤖 AI & Automation** | **Skill Level** | **⚙️ Operations** | **Skill Level** |
+|:---|:---:|:---|:---:|
+| Agentic Workflows | `██████░░░░` 6/10 | Monitoring | `████████░░` 8/10 |
+| Claude Code | `███████░░░` 7/10 | CI/CD | `████████░░` 8/10 |
+| Cursor | `███████░░░` 7/10 | Infrastructure | `█████████░` 9/10 |
+| Chatbots | `██████░░░░` 6/10 | Performance | `███████░░░` 7/10 |
+| AWS Bedrock | `█████░░░░░` 5/10 | Security | `███████░░░` 7/10 |
+
+</div>
 
 
 ## 💼 Professional Experience

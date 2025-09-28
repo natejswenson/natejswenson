@@ -70,7 +70,7 @@ describe('README.md Content Validation', () => {
 
     test('should mention Development expertise', () => {
       expect(readmeContent).toMatch(/Development|Software Engineering/i);
-      expect(readmeContent).toMatch(/programming|coding/i);
+      expect(readmeContent).toMatch(/Python|JavaScript|Shell/i); // Updated to match table content
     });
 
     test('should include specific Development languages', () => {
@@ -91,8 +91,8 @@ describe('README.md Content Validation', () => {
     });
 
     test('should include Agentic Automation', () => {
-      expect(readmeContent).toMatch(/Agentic.*Automation|Automation.*Agentic/i);
-      expect(readmeContent).toMatch(/intelligent.*automation|automation.*intelligent/i);
+      expect(readmeContent).toMatch(/Agentic.*Workflows|Workflows.*Agentic/i); // Updated to match table content
+      expect(readmeContent).toMatch(/AI.*Automation|Automation.*AI/i); // Updated to match table header
     });
 
     test('should include specific AI technologies', () => {
@@ -101,6 +101,23 @@ describe('README.md Content Validation', () => {
       expect(readmeContent).toMatch(/Claude.*Code|Claude Code/i);
       expect(readmeContent).toMatch(/Cursor/i);
       expect(readmeContent).toMatch(/Bedrock/i);
+    });
+
+    test('should include visual skill level representations', () => {
+      expect(readmeContent).toMatch(/█|▓|▒|░/); // Visual bar characters
+      expect(readmeContent).toMatch(/\d+\/10|\d+\s*\/\s*10/); // Skill level format like "9/10"
+    });
+
+    test('should include skill level bars for technologies', () => {
+      expect(readmeContent).toMatch(/AWS.*█|█.*AWS/i); // AWS with visual bar
+      expect(readmeContent).toMatch(/Python.*█|█.*Python/i); // Python with visual bar
+      expect(readmeContent).toMatch(/Terraform.*█|█.*Terraform/i); // Terraform with visual bar
+    });
+
+    test('should use concise visual format with less text', () => {
+      // Should have fewer verbose descriptions and more visual elements
+      expect(readmeContent).not.toMatch(/- \*\*.*:\*\* .{100,}/); // No long bullet descriptions
+      expect(readmeContent).toMatch(/\|\s*\w+\s*\|.*█/); // Table format with bars
     });
 
     test('should mention Test-Driven Development', () => {
