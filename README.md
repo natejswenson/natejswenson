@@ -78,7 +78,7 @@ As a motivated professional, I thrive in collaborative environments, working clo
 
 [![GitHub Contributions Graph](https://github-readme-activity-graph.vercel.app/graph?username=natejswenson&theme=tokyo-night&hide_border=true&custom_title=GitHub%20Contributions%20Activity)](https://github.com/natejswenson)
 
-![GitHub Streak Stats](https://streak-stats.demolab.com/?user=natejswenson&theme=tokyonight&hide_border=true)
+![GitHub Streak Stats](https://streak-stats.demolab.com/?user=natejswenson&theme=tokyonight&hide_border=true&date_format=%5Bh%5D&ring=DD2727&fire=DD2727&currStreakLabel=DD2727)
 
 </div>
 

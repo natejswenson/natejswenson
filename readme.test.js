@@ -149,6 +149,10 @@ describe('README.md Content Validation', () => {
       expect(readmeContent).toMatch(/github-readme-activity-graph|ghchart|github-contribution|streak-stats/i);
     });
 
+    test('should include streak stats with date range parameter', () => {
+      expect(readmeContent).toMatch(/streak-stats.*date_format.*%5Bh%5D|streak-stats.*date_format/i);
+    });
+
     test('should not include the old github-readme-stats', () => {
       expect(readmeContent).not.toMatch(/github-readme-stats\.vercel\.app/i);
     });
