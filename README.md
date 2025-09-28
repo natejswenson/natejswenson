@@ -94,11 +94,6 @@ As a motivated professional, I thrive in collaborative environments, working clo
 - **Commitment:** Dedicated to using technology for positive global impact
 
 
-## 🎓 Educational Foundation
-
-**University of Minnesota-Duluth** | *2005-2010*
-- Strong foundation in analytical thinking and problem-solving
-- Developed leadership and teamwork skills through diverse coursework
 
 ## 🤖 Passion Areas & Interests
 
@@ -107,26 +102,35 @@ As a motivated professional, I thrive in collaborative environments, working clo
 ```mermaid
 mindmap
   root((Nate's Interests))
-    AI & Technology
+    Fitness
+      Health & Wellness
+      Active Lifestyle
+      Personal Growth
+    STEM
+      Science & Technology
+      Engineering Innovation
+      Mathematics
+    Kids
+      Youth Development
+      Education & Mentoring
+      Technology for Learning
+    AI
       Machine Learning
       Artificial Intelligence
-      Innovation
-    Sustainability
-      Solar Energy
-      Clean Technology
-      Environmental Impact
-    Community
-      Humanitarian Projects
-      Youth Development
-      Technology for Good
+      Automation
+    Coding
+      Software Development
+      Open Source
+      Problem Solving
 ```
 
 </div>
 
-- **🤖 AI & Machine Learning:** Exploring applications of artificial intelligence in solving real-world problems
-- **🌱 Sustainable Technology:** Passionate about using technology to address climate challenges
-- **🌍 Humanitarian Tech:** Developing solutions that improve lives in underserved communities
-- **⚡ Clean Energy:** Supporting the transition to renewable energy through technology innovation
+- **💪 Fitness:** Committed to health and wellness through active lifestyle and personal growth
+- **🔬 STEM:** Passionate about science, technology, engineering, and mathematics innovation
+- **👶 Kids:** Dedicated to youth development, education, and creating technology that benefits learning
+- **🤖 AI:** Exploring artificial intelligence, machine learning, and intelligent automation solutions
+- **💻 Coding:** Enthusiastic about software development, open source contributions, and creative problem solving
 
 ## 📫 Let's Connect & Collaborate
 

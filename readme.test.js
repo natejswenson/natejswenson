@@ -219,16 +219,32 @@ describe('README.md Content Validation', () => {
   });
 
   describe('Education and Background', () => {
-    test('should mention University of Minnesota-Duluth', () => {
-      expect(readmeContent).toMatch(/University of Minnesota.*Duluth|Minnesota.*Duluth/i);
-    });
-
-    test('should include education timeframe (2005-2010)', () => {
-      expect(readmeContent).toMatch(/2005.*2010|2005-2010/);
+    test('should not include Education section', () => {
+      expect(readmeContent).not.toMatch(/##.*Educational.*Foundation|##.*Education/i);
     });
   });
 
-  describe('AI and Technology Interests', () => {
+  describe('Personal Interests', () => {
+    test('should include Fitness interest', () => {
+      expect(readmeContent).toMatch(/Fitness/i);
+    });
+
+    test('should include STEM interest', () => {
+      expect(readmeContent).toMatch(/STEM/i);
+    });
+
+    test('should include Kids interest', () => {
+      expect(readmeContent).toMatch(/Kids/i);
+    });
+
+    test('should include AI interest', () => {
+      expect(readmeContent).toMatch(/\bAI\b/i);
+    });
+
+    test('should include Coding interest', () => {
+      expect(readmeContent).toMatch(/Coding/i);
+    });
+
     test('should mention AI or machine learning interests', () => {
       expect(readmeContent).toMatch(/AI|Artificial Intelligence|machine learning|ML/i);
     });
