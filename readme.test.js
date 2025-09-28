@@ -141,8 +141,16 @@ describe('README.md Content Validation', () => {
   });
 
   describe('FR4: GitHub statistics and activity metrics', () => {
-    test('should include GitHub stats badges or references', () => {
-      expect(readmeContent).toMatch(/github.*stats|stats.*github/i);
+    test('should include GitHub contributions graph', () => {
+      expect(readmeContent).toMatch(/contributions.*graph|github.*contributions/i);
+    });
+
+    test('should include contributions graph image or embed', () => {
+      expect(readmeContent).toMatch(/github-readme-activity-graph|ghchart|github-contribution|streak-stats/i);
+    });
+
+    test('should not include the old github-readme-stats', () => {
+      expect(readmeContent).not.toMatch(/github-readme-stats\.vercel\.app/i);
     });
   });
 

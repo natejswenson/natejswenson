@@ -72,13 +72,13 @@ As a motivated professional, I thrive in collaborative environments, working clo
 - 🚀 **DevOps Leadership:** Leading cross-functional teams in cloud deployments and automation practices
 
 
-## 📊 GitHub Activity
+## 📊 GitHub Contributions Graph
 
 <div align="center">
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=natejswenson&show_icons=true&theme=tokyonight&hide_border=true)
+[![GitHub Contributions Graph](https://github-readme-activity-graph.vercel.app/graph?username=natejswenson&theme=tokyo-night&hide_border=true&custom_title=GitHub%20Contributions%20Activity)](https://github.com/natejswenson)
 
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=natejswenson&layout=compact&theme=tokyonight&hide_border=true)
+![GitHub Streak Stats](https://streak-stats.demolab.com/?user=natejswenson&theme=tokyonight&hide_border=true)
 
 </div>
 
