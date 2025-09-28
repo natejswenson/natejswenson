@@ -17,8 +17,9 @@ describe('README.md Content Validation', () => {
     });
 
     test('should contain current role indicators', () => {
-      expect(readmeContent).toMatch(/Cloud.*AWS|AWS.*Cloud/i);
-      expect(readmeContent).toContain('GoodLeap');
+      expect(readmeContent).toMatch(/Cloud.*DevOps|DevOps.*Cloud/i);
+      expect(readmeContent).toMatch(/AWS Solutions Architect/i);
+      expect(readmeContent).toMatch(/Terraform.*Container|Container.*Terraform/i);
     });
   });
 
@@ -28,10 +29,95 @@ describe('README.md Content Validation', () => {
       expect(readmeContent).toMatch(/Cloud Computing|Cloud/i);
     });
 
-    test('should include Agile certifications', () => {
-      expect(readmeContent).toMatch(/Certified Scrum Developer|CSD/i);
-      expect(readmeContent).toMatch(/Certified Scrum Product Owner|CSPO/i);
-      expect(readmeContent).toMatch(/SAFe Agilist/i);
+    test('should include specific AWS services', () => {
+      expect(readmeContent).toMatch(/EC2/i);
+      expect(readmeContent).toMatch(/S3/i);
+      expect(readmeContent).toMatch(/Lambda/i);
+      expect(readmeContent).toMatch(/EKS/i);
+      expect(readmeContent).toMatch(/ECS/i);
+      expect(readmeContent).toMatch(/CloudFormation/i);
+    });
+
+    test('should mention Infrastructure as Code and Terraform', () => {
+      expect(readmeContent).toMatch(/Terraform/i);
+      expect(readmeContent).toMatch(/infrastructure.*code|IaC/i);
+    });
+
+    test('should include container and Kubernetes technologies', () => {
+      expect(readmeContent).toMatch(/Kubernetes/i);
+      expect(readmeContent).toMatch(/Docker/i);
+      expect(readmeContent).toMatch(/ArgoCD/i);
+    });
+
+    test('should mention monitoring tools', () => {
+      expect(readmeContent).toMatch(/CloudWatch/i);
+      expect(readmeContent).toMatch(/DataDog/i);
+    });
+
+    test('should include DevOps practices and tools', () => {
+      expect(readmeContent).toMatch(/DevOps/i);
+      expect(readmeContent).toMatch(/CI\/CD|Continuous Integration|Continuous Deployment/i);
+      expect(readmeContent).toMatch(/automation/i);
+    });
+
+    test('should include specific DevOps technologies', () => {
+      expect(readmeContent).toMatch(/Datadog/i);
+      expect(readmeContent).toMatch(/Terraform/i);
+      expect(readmeContent).toMatch(/AWS/i);
+      expect(readmeContent).toMatch(/Containers/i);
+      expect(readmeContent).toMatch(/EKS/i);
+    });
+
+    test('should mention Development expertise', () => {
+      expect(readmeContent).toMatch(/Development|Software Engineering/i);
+      expect(readmeContent).toMatch(/Python|JavaScript|Shell/i); // Updated to match table content
+    });
+
+    test('should include specific Development languages', () => {
+      expect(readmeContent).toMatch(/Python/i);
+      expect(readmeContent).toMatch(/Javascript/i);
+      expect(readmeContent).toMatch(/shell/i);
+    });
+
+    test('should include Operations and infrastructure', () => {
+      expect(readmeContent).toMatch(/Operations|Infrastructure/i);
+      expect(readmeContent).toMatch(/monitoring|observability/i);
+      expect(readmeContent).toMatch(/scalability|performance/i);
+    });
+
+    test('should mention AI and machine learning', () => {
+      expect(readmeContent).toMatch(/AI|Artificial Intelligence/i);
+      expect(readmeContent).toMatch(/machine learning|ML/i);
+    });
+
+    test('should include Agentic Automation', () => {
+      expect(readmeContent).toMatch(/Agentic.*Workflows|Workflows.*Agentic/i); // Updated to match table content
+      expect(readmeContent).toMatch(/AI.*Automation|Automation.*AI/i); // Updated to match table header
+    });
+
+    test('should include specific AI technologies', () => {
+      expect(readmeContent).toMatch(/Agentic.*workflows|workflows.*Agentic/i);
+      expect(readmeContent).toMatch(/Chatbots/i);
+      expect(readmeContent).toMatch(/Claude.*Code|Claude Code/i);
+      expect(readmeContent).toMatch(/Cursor/i);
+      expect(readmeContent).toMatch(/Bedrock/i);
+    });
+
+    test('should include visual skill level representations', () => {
+      expect(readmeContent).toMatch(/█|▓|▒|░/); // Visual bar characters
+      expect(readmeContent).toMatch(/\d+\/10|\d+\s*\/\s*10/); // Skill level format like "9/10"
+    });
+
+    test('should include skill level bars for technologies', () => {
+      expect(readmeContent).toMatch(/AWS.*█|█.*AWS/i); // AWS with visual bar
+      expect(readmeContent).toMatch(/Python.*█|█.*Python/i); // Python with visual bar
+      expect(readmeContent).toMatch(/Terraform.*█|█.*Terraform/i); // Terraform with visual bar
+    });
+
+    test('should use concise visual format with less text', () => {
+      // Should have fewer verbose descriptions and more visual elements
+      expect(readmeContent).not.toMatch(/- \*\*.*:\*\* .{100,}/); // No long bullet descriptions
+      expect(readmeContent).toMatch(/\|\s*\w+\s*\|.*█/); // Table format with bars
     });
 
     test('should mention Test-Driven Development', () => {
@@ -44,14 +130,31 @@ describe('README.md Content Validation', () => {
       expect(readmeContent).toContain('GoodLeap');
     });
 
-    test('should indicate remote work', () => {
-      expect(readmeContent).toMatch(/Remote|remote/);
+    test('should describe DevOps and cloud expertise', () => {
+      expect(readmeContent).toMatch(/DevOps.*practices|practices.*DevOps/i);
+      expect(readmeContent).toMatch(/cloud.*solutions|solutions.*cloud/i);
+    });
+
+    test('should indicate collaborative work experience', () => {
+      expect(readmeContent).toMatch(/cross-functional.*teams|teams.*cross-functional/i);
     });
   });
 
   describe('FR4: GitHub statistics and activity metrics', () => {
-    test('should include GitHub stats badges or references', () => {
-      expect(readmeContent).toMatch(/github.*stats|stats.*github/i);
+    test('should include GitHub contributions graph', () => {
+      expect(readmeContent).toMatch(/contributions.*graph|github.*contributions/i);
+    });
+
+    test('should include contributions graph image or embed', () => {
+      expect(readmeContent).toMatch(/github-readme-activity-graph|ghchart|github-contribution|streak-stats/i);
+    });
+
+    test('should include streak stats with date range parameter', () => {
+      expect(readmeContent).toMatch(/streak-stats.*date_format.*%5Bh%5D|streak-stats.*date_format/i);
+    });
+
+    test('should not include the old github-readme-stats', () => {
+      expect(readmeContent).not.toMatch(/github-readme-stats\.vercel\.app/i);
     });
   });
 
@@ -73,19 +176,15 @@ describe('README.md Content Validation', () => {
     test('should include award date (Nov 2024)', () => {
       expect(readmeContent).toMatch(/Nov.*2024|November.*2024/);
     });
+
+    test('should not include separate certifications section', () => {
+      expect(readmeContent).not.toMatch(/##.*Certifications.*Recognition|##.*Certifications.*Awards/i);
+    });
   });
 
-  describe('FR7: Languages and proficiency levels', () => {
-    test('should list English as native language', () => {
-      expect(readmeContent).toMatch(/English.*Native|Native.*English/i);
-    });
-
-    test('should mention Spanish proficiency', () => {
-      expect(readmeContent).toMatch(/Spanish.*Elementary|Elementary.*Spanish/i);
-    });
-
-    test('should include American Sign Language', () => {
-      expect(readmeContent).toMatch(/American Sign Language|ASL/i);
+  describe('FR7: Section validation', () => {
+    test('should not include Languages section', () => {
+      expect(readmeContent).not.toMatch(/##.*Languages.*Communication|##.*Languages/i);
     });
   });
 
@@ -98,20 +197,36 @@ describe('README.md Content Validation', () => {
       expect(readmeContent).toMatch(/solar.*power|solar.*installation/i);
     });
 
-    test('should mention youth coaching', () => {
-      expect(readmeContent).toMatch(/youth.*coaching|coaching.*youth/i);
+    test('should not mention youth coaching separately', () => {
+      expect(readmeContent).not.toMatch(/##.*Youth.*Development|Youth.*Coaching/i);
     });
   });
 
-  describe('FR9: Featured repositories and projects', () => {
-    test('should have a section for featured projects or repositories', () => {
-      expect(readmeContent).toMatch(/Featured.*Projects|Projects.*Featured|Featured.*Repositories|Repositories.*Featured/i);
+  describe('FR9: Section management', () => {
+    test('should not have a Featured Projects section', () => {
+      expect(readmeContent).not.toMatch(/##.*Featured.*Projects|##.*Featured.*Repositories/i);
     });
   });
 
   describe('FR10: Call-to-action for collaboration', () => {
     test('should include collaboration invitation', () => {
       expect(readmeContent).toMatch(/collaborate|collaboration|connect|contact/i);
+    });
+
+    test('should include Cloud Computing collaboration type', () => {
+      expect(readmeContent).toMatch(/Cloud Computing/i);
+    });
+
+    test('should include AI/ML Applications collaboration type', () => {
+      expect(readmeContent).toMatch(/AI\/ML Applications|AI.*ML.*Applications/i);
+    });
+
+    test('should not include Humanitarian Technology collaboration type', () => {
+      expect(readmeContent).not.toMatch(/Humanitarian Technology/i);
+    });
+
+    test('should not include Sustainable Energy Solutions collaboration type', () => {
+      expect(readmeContent).not.toMatch(/Sustainable Energy Solutions/i);
     });
   });
 
@@ -132,16 +247,32 @@ describe('README.md Content Validation', () => {
   });
 
   describe('Education and Background', () => {
-    test('should mention University of Minnesota-Duluth', () => {
-      expect(readmeContent).toMatch(/University of Minnesota.*Duluth|Minnesota.*Duluth/i);
-    });
-
-    test('should include education timeframe (2005-2010)', () => {
-      expect(readmeContent).toMatch(/2005.*2010|2005-2010/);
+    test('should not include Education section', () => {
+      expect(readmeContent).not.toMatch(/##.*Educational.*Foundation|##.*Education/i);
     });
   });
 
-  describe('AI and Technology Interests', () => {
+  describe('Personal Interests', () => {
+    test('should include Fitness interest', () => {
+      expect(readmeContent).toMatch(/Fitness/i);
+    });
+
+    test('should include STEM interest', () => {
+      expect(readmeContent).toMatch(/STEM/i);
+    });
+
+    test('should include Kids interest', () => {
+      expect(readmeContent).toMatch(/Kids/i);
+    });
+
+    test('should include AI interest', () => {
+      expect(readmeContent).toMatch(/\bAI\b/i);
+    });
+
+    test('should include Coding interest', () => {
+      expect(readmeContent).toMatch(/Coding/i);
+    });
+
     test('should mention AI or machine learning interests', () => {
       expect(readmeContent).toMatch(/AI|Artificial Intelligence|machine learning|ML/i);
     });

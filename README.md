@@ -1,7 +1,7 @@
 <div align="center">
 
 # Nate Swenson
-### Cloud & AWS Professional | Software Engineer | Agile Expert
+### Cloud and DevOps Professional | AWS Solutions Architect | Terraform and Container Expert
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-natejswenson-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/natejswenson)
 [![Website](https://img.shields.io/badge/Website-Portfolio-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)](https://natejswenson.github.io/my-resume/)
@@ -13,47 +13,54 @@
 
 ## 👋 About Me
 
-**DevOps Engineer** currently working at **GoodLeap**  with expertise in software engineering and cloud . Passionate about AI-driven development and innovative technology solutions that make a positive impact.
+I'm **Nate J. Swenson**, a results-driven professional specializing in Cloud and AWS with a strong focus on DevOps practices. With a solid background in software development and infrastructure management, I excel in leveraging cloud technologies to optimize system performance, scalability, and reliability.
+
+Throughout my career, I have successfully designed and implemented cloud-based solutions on AWS, utilizing services such as EC2, S3, Lambda, EKS, ECS, and CloudFormation. I am highly skilled in infrastructure-as-code (IaC) principles and have extensive experience with Terraform, enabling streamlined provisioning and automation of cloud resources.
+
+Furthermore, I have expertise in deploying and managing applications in containerized environments using Kubernetes on AWS EKS. I have worked with Docker extensively, ensuring efficient container orchestration and seamless application deployment. Most recently leveraging ArgoCD to manage EKS deployments.
+
+My proficiency extends to monitoring and troubleshooting cloud environments using AWS CloudWatch and other monitoring tools such as DataDog to ensure high availability and optimal performance. I am also skilled in implementing security best practices and maintaining compliance in AWS environments.
+
+As a motivated professional, I thrive in collaborative environments, working closely with cross-functional teams to drive successful cloud deployments and DevOps practices. I am constantly seeking opportunities to enhance my skills and stay abreast of the latest advancements in cloud technologies.
 
 ## 🛠️ Technical Expertise
 
 <div align="center">
 
 ![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)
-![Cloud Computing](https://img.shields.io/badge/Cloud_Computing-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white)
-![Agile](https://img.shields.io/badge/Agile-239120?style=for-the-badge&logo=agile&logoColor=white)
-![TDD](https://img.shields.io/badge/Test_Driven_Development-FF6B6B?style=for-the-badge&logo=testing-library&logoColor=white)
-![CI/CD](https://img.shields.io/badge/CI%2FCD-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
+![DevOps](https://img.shields.io/badge/DevOps-326CE5?style=for-the-badge&logo=devops&logoColor=white)
+![Terraform](https://img.shields.io/badge/Terraform-623CE4?style=for-the-badge&logo=terraform&logoColor=white)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
+![AI](https://img.shields.io/badge/AI_Automation-FF6B6B?style=for-the-badge&logo=robot&logoColor=white)
 
 </div>
 
-### Core Technologies & Practices
-- **Cloud Platforms:** AWS (Amazon Web Services), Cloud Architecture & Design
-- **Development Methodologies:** Agile, Scrum, Test-Driven Development (TDD)
-- **DevOps:** Continuous Integration/Continuous Delivery, Infrastructure as Code
-- **Leadership:** Certified Scrum Developer, Product Owner, SAFe Agilist
+### Core Competencies
 
-## 🏆 Certifications & Recognition
+<div align="center">
 
-<table>
-<tr>
-<td>
+| **🚀 DevOps & Cloud** | **Skill Level** | **💻 Development** | **Skill Level** |
+|:---|:---:|:---|:---:|
+| AWS | `█████████░` 9/10 | Python | `████████░░` 8/10 |
+| Terraform | `████████░░` 8/10 | JavaScript | `███████░░░` 7/10 |
+| Datadog | `████████░░` 8/10 | Shell | `█████████░` 9/10 |
+| Containers | `████████░░` 8/10 | TDD | `████████░░` 8/10 |
+| EKS/Kubernetes | `███████░░░` 7/10 | Git | `█████████░` 9/10 |
 
-**Professional Certifications:**
-- 🥇 **Certified Scrum Developer** (CSD)
-- 🥇 **Certified Scrum Product Owner** (CSPO)
-- 🥇 **SAFe Agilist**
+</div>
 
-</td>
-<td>
+<div align="center">
 
-**Recent Achievements:**
-- 🏆 **Arch Forward Award - Hackathon** (Nov 2024)
-  - Recognition for innovative architecture solutions at GoodLeap
+| **🤖 AI & Automation** | **Skill Level** | **⚙️ Operations** | **Skill Level** |
+|:---|:---:|:---|:---:|
+| Agentic Workflows | `██████░░░░` 6/10 | Monitoring | `████████░░` 8/10 |
+| Claude Code | `███████░░░` 7/10 | CI/CD | `████████░░` 8/10 |
+| Cursor | `███████░░░` 7/10 | Infrastructure | `█████████░` 9/10 |
+| Chatbots | `██████░░░░` 6/10 | Performance | `███████░░░` 7/10 |
+| AWS Bedrock | `█████░░░░░` 5/10 | Security | `███████░░░` 7/10 |
 
-</td>
-</tr>
-</table>
+</div>
+
 
 ## 💼 Professional Experience
 
@@ -61,57 +68,32 @@
 > *Driving innovation in sustainable energy financing through cloud-first solutions*
 
 - ☁️ **Cloud Architecture:** Designing and implementing scalable AWS solutions
+- 🏆 **Innovation Recognition:** Arch Forward Award - Hackathon (Nov 2024) for innovative architecture solutions
+- 🚀 **DevOps Leadership:** Leading cross-functional teams in cloud deployments and automation practices
 
 
-## 📊 GitHub Activity
-
-<div align="center">
-
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=natejswenson&show_icons=true&theme=tokyonight&hide_border=true)
-
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=natejswenson&layout=compact&theme=tokyonight&hide_border=true)
-
-</div>
-
-## 🚀 Featured Projects
+## 📊 GitHub Contributions Graph
 
 <div align="center">
 
-*🔧 Curating a showcase of innovative projects and solutions - Stay tuned!*
+[![GitHub Contributions Graph](https://github-readme-activity-graph.vercel.app/graph?username=natejswenson&theme=tokyo-night&hide_border=true&custom_title=GitHub%20Contributions%20Activity)](https://github.com/natejswenson)
 
-*Projects will highlight cloud architecture, AI implementations, and humanitarian technology applications*
+![GitHub Streak Stats](https://streak-stats.demolab.com/?user=natejswenson&theme=tokyonight&hide_border=true&date_format=%5Bh%5D&ring=DD2727&fire=DD2727&currStreakLabel=DD2727)
 
 </div>
+
 
 ## 🌍 Impact & Community
 
-### 🌞 GivePower - Solar Energy Volunteer
+### 🌞 GivePower - Volunteer
 > *Bringing sustainable energy to underserved communities worldwide*
 
 - **Mission:** Installing solar power systems in remote villages
 - **Impact:** Providing clean, reliable electricity to communities without grid access
 - **Technology:** Leveraging renewable energy solutions for humanitarian aid
+- **Commitment:** Dedicated to using technology for positive global impact
 
-### 👨‍🏫 Youth Development & Coaching
-> *Investing in the next generation through mentorship and guidance*
 
-- **Community Leadership:** Active in local youth coaching programs
-- **Mentorship:** Sharing technology and professional development insights
-- **Impact:** Helping young people develop leadership and technical skills
-
-## 🌐 Languages & Communication
-
-| Language | Proficiency | Context |
-|----------|-------------|---------|
-| 🇺🇸 **English** | Native | Professional & Personal |
-| 🇪🇸 **Spanish** | Elementary | Travel & Cultural Exchange |
-| 🤟 **American Sign Language (ASL)** | Limited Working | Accessibility & Inclusion |
-
-## 🎓 Educational Foundation
-
-**University of Minnesota-Duluth** | *2005-2010*
-- Strong foundation in analytical thinking and problem-solving
-- Developed leadership and teamwork skills through diverse coursework
 
 ## 🤖 Passion Areas & Interests
 
@@ -120,33 +102,42 @@
 ```mermaid
 mindmap
   root((Nate's Interests))
-    AI & Technology
+    Fitness
+      Health & Wellness
+      Active Lifestyle
+      Personal Growth
+    STEM
+      Science & Technology
+      Engineering Innovation
+      Mathematics
+    Kids
+      Youth Development
+      Education & Mentoring
+      Technology for Learning
+    AI
       Machine Learning
       Artificial Intelligence
-      Innovation
-    Sustainability
-      Solar Energy
-      Clean Technology
-      Environmental Impact
-    Community
-      Humanitarian Projects
-      Youth Development
-      Technology for Good
+      Automation
+    Coding
+      Software Development
+      Open Source
+      Problem Solving
 ```
 
 </div>
 
-- **🤖 AI & Machine Learning:** Exploring applications of artificial intelligence in solving real-world problems
-- **🌱 Sustainable Technology:** Passionate about using technology to address climate challenges
-- **🌍 Humanitarian Tech:** Developing solutions that improve lives in underserved communities
-- **⚡ Clean Energy:** Supporting the transition to renewable energy through technology innovation
+- **💪 Fitness:** Committed to health and wellness through active lifestyle and personal growth
+- **🔬 STEM:** Passionate about science, technology, engineering, and mathematics innovation
+- **👶 Kids:** Dedicated to youth development, education, and creating technology that benefits learning
+- **🤖 AI:** Exploring artificial intelligence, machine learning, and intelligent automation solutions
+- **💻 Coding:** Enthusiastic about software development, open source contributions, and creative problem solving
 
 ## 📫 Let's Connect & Collaborate
 
 <div align="center">
 
 ### 🤝 I'm always excited to collaborate on projects involving:
-**Cloud Computing** • **AI/ML Applications** • **Humanitarian Technology** • **Sustainable Energy Solutions**
+**Cloud Computing** • **AI/ML Applications**
 
 <br>
 
