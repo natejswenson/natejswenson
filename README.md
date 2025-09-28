@@ -28,40 +28,39 @@ As a motivated professional, I thrive in collaborative environments, working clo
 <div align="center">
 
 ![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)
-![Cloud Computing](https://img.shields.io/badge/Cloud_Computing-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white)
-![Agile](https://img.shields.io/badge/Agile-239120?style=for-the-badge&logo=agile&logoColor=white)
-![TDD](https://img.shields.io/badge/Test_Driven_Development-FF6B6B?style=for-the-badge&logo=testing-library&logoColor=white)
-![CI/CD](https://img.shields.io/badge/CI%2FCD-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
+![DevOps](https://img.shields.io/badge/DevOps-326CE5?style=for-the-badge&logo=devops&logoColor=white)
+![Terraform](https://img.shields.io/badge/Terraform-623CE4?style=for-the-badge&logo=terraform&logoColor=white)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
+![AI](https://img.shields.io/badge/AI_Automation-FF6B6B?style=for-the-badge&logo=robot&logoColor=white)
 
 </div>
 
-### Core Technologies & Practices
-- **Cloud Platforms:** AWS (Amazon Web Services), Cloud Architecture & Design
-- **Development Methodologies:** Agile, Scrum, Test-Driven Development (TDD)
-- **DevOps:** Continuous Integration/Continuous Delivery, Infrastructure as Code
-- **Leadership:** Certified Scrum Developer, Product Owner, SAFe Agilist
+### Core Competencies
 
-## 🏆 Certifications & Recognition
+**🚀 DevOps Engineering**
+- Continuous Integration/Continuous Deployment (CI/CD) pipeline design and implementation
+- Infrastructure automation and orchestration
+- Configuration management and version control systems
+- Monitoring, observability, and intelligent automation solutions
 
-<table>
-<tr>
-<td>
+**💻 Development & Programming**
+- Software engineering with cloud-native programming practices
+- Test-Driven Development (TDD) and automated testing frameworks
+- Microservices architecture and API development
+- Code quality, security, and performance optimization
 
-**Professional Certifications:**
-- 🥇 **Certified Scrum Developer** (CSD)
-- 🥇 **Certified Scrum Product Owner** (CSPO)
-- 🥇 **SAFe Agilist**
+**⚙️ Operations & Infrastructure**
+- Infrastructure as Code (IaC) with Terraform and CloudFormation
+- Container orchestration using Kubernetes and Docker
+- System monitoring, troubleshooting, and performance tuning
+- High availability, scalability, and disaster recovery planning
 
-</td>
-<td>
+**🤖 AI & Agentic Automation**
+- Artificial Intelligence and Machine Learning integration
+- Intelligent automation and agentic workflow design
+- AI-driven monitoring and self-healing infrastructure
+- Automated decision-making systems and smart operations
 
-**Recent Achievements:**
-- 🏆 **Arch Forward Award - Hackathon** (Nov 2024)
-  - Recognition for innovative architecture solutions at GoodLeap
-
-</td>
-</tr>
-</table>
 
 ## 💼 Professional Experience
 
@@ -69,6 +68,8 @@ As a motivated professional, I thrive in collaborative environments, working clo
 > *Driving innovation in sustainable energy financing through cloud-first solutions*
 
 - ☁️ **Cloud Architecture:** Designing and implementing scalable AWS solutions
+- 🏆 **Innovation Recognition:** Arch Forward Award - Hackathon (Nov 2024) for innovative architecture solutions
+- 🚀 **DevOps Leadership:** Leading cross-functional teams in cloud deployments and automation practices
 
 
 ## 📊 GitHub Activity

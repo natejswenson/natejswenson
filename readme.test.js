@@ -54,10 +54,31 @@ describe('README.md Content Validation', () => {
       expect(readmeContent).toMatch(/DataDog/i);
     });
 
-    test('should include Agile certifications', () => {
-      expect(readmeContent).toMatch(/Certified Scrum Developer|CSD/i);
-      expect(readmeContent).toMatch(/Certified Scrum Product Owner|CSPO/i);
-      expect(readmeContent).toMatch(/SAFe Agilist/i);
+    test('should include DevOps practices and tools', () => {
+      expect(readmeContent).toMatch(/DevOps/i);
+      expect(readmeContent).toMatch(/CI\/CD|Continuous Integration|Continuous Deployment/i);
+      expect(readmeContent).toMatch(/automation/i);
+    });
+
+    test('should mention Development expertise', () => {
+      expect(readmeContent).toMatch(/Development|Software Engineering/i);
+      expect(readmeContent).toMatch(/programming|coding/i);
+    });
+
+    test('should include Operations and infrastructure', () => {
+      expect(readmeContent).toMatch(/Operations|Infrastructure/i);
+      expect(readmeContent).toMatch(/monitoring|observability/i);
+      expect(readmeContent).toMatch(/scalability|performance/i);
+    });
+
+    test('should mention AI and machine learning', () => {
+      expect(readmeContent).toMatch(/AI|Artificial Intelligence/i);
+      expect(readmeContent).toMatch(/machine learning|ML/i);
+    });
+
+    test('should include Agentic Automation', () => {
+      expect(readmeContent).toMatch(/Agentic.*Automation|Automation.*Agentic/i);
+      expect(readmeContent).toMatch(/intelligent.*automation|automation.*intelligent/i);
     });
 
     test('should mention Test-Driven Development', () => {
@@ -103,6 +124,10 @@ describe('README.md Content Validation', () => {
 
     test('should include award date (Nov 2024)', () => {
       expect(readmeContent).toMatch(/Nov.*2024|November.*2024/);
+    });
+
+    test('should not include separate certifications section', () => {
+      expect(readmeContent).not.toMatch(/##.*Certifications.*Recognition|##.*Certifications.*Awards/i);
     });
   });
 
