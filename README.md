@@ -1,4 +1,1 @@
-```
-$ whoami
-```
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=FFFFFF&background=000000&vCenter=true&width=600&height=100&lines=nate+swenson;cloud+engineer+%40+goodleap;aws+%C2%B7+terraform+%C2%B7+kubernetes;skills%3A+aws+terraform+kubernetes+python;skills%3A+datadog+containers+ci-cd+shell;%E2%98%81%EF%B8%8F+building+cloud+infrastructure;%F0%9F%A4%96+exploring+ai+and+automation;%F0%9F%8C%8D+volunteering+with+givepower;%F0%9F%92%AA+fitness+%C2%B7+%F0%9F%94%AC+stem+%C2%B7+%F0%9F%91%B6+kids+%C2%B7+%F0%9F%92%BB+coding;linkedin.com%2Fin%2Fnatejswenson;natejswenson.github.io%2Fmy-resume)](https://git.io/typing-svg)
+![Typing Animation](output.gif)
