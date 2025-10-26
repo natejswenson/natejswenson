@@ -25,17 +25,17 @@ SHAPE_COLORS = [
 
 # Content lines
 LINES = [
-    "● nate swenson",
-    "▲ cloud engineer @ goodleap",
-    "■ aws · terraform · kubernetes",
-    "✖ skills: aws terraform kubernetes python",
-    "● skills: datadog containers ci-cd shell",
-    "▲ ☁️  building cloud infrastructure",
-    "■ 🤖 exploring ai and automation",
-    "✖ 🌍 volunteering with givepower",
-    "● 💪 fitness · 🔬 stem · 👶 kids · 💻 coding",
-    "▲ linkedin.com/in/natejswenson",
-    "■ natejswenson.github.io/my-resume",
+    "nate swenson:",
+    "▲ Operations Engineer @ goodleap",
+    "■ AI Enthusiast",
+    "✖ Contious Learner",
+    "● experieced coder in js and python",
+    "../interested-in"
+    "▲ 💪 fitness · 🔬 stem · 👶 kids · 💻 coding",
+    "../connect-with-me"
+    "■ linkedin.com/in/natejswenson",
+    "✖ natejswenson.github.io/my-resume",
+    "✖ natejswenson.com"
 ]
 
 # Shapes (circle, triangle, square, X)
