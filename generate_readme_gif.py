@@ -31,11 +31,13 @@ LINES = [
     "✖ Contious Learner",
     "● experieced coder in js and python",
     "../interested-in"
-    "▲ 💪 fitness · 🔬 stem · 👶 kids · 💻 coding",
+    "▲ fitnessstem"
+    "■ STEM (for kids)",
+    "✖ coding",
     "../connect-with-me"
     "■ linkedin.com/in/natejswenson",
     "✖ natejswenson.github.io/my-resume",
-    "✖ natejswenson.com"
+    "● natejswenson.com"
 ]
 
 # Shapes (circle, triangle, square, X)
