@@ -31,10 +31,10 @@ LINES = [
     "✖ Contious Learner",
     "● experieced coder in js and python",
     "../interested-in"
-    "▲ fitnessstem"
+    "▲ Automation using AI"
     "■ STEM (for kids)",
     "✖ coding",
-    "../connect-with-me"
+    "../connect-with-me",
     "■ linkedin.com/in/natejswenson",
     "✖ natejswenson.github.io/my-resume",
     "● natejswenson.com"
