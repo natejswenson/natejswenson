@@ -25,19 +25,12 @@ SHAPE_COLORS = [
 
 # Content lines
 LINES = [
-    "nate swenson:",
+    "● nate swenson:",
     "▲ Operations Engineer @ goodleap",
     "■ AI Enthusiast",
     "✖ Contious Learner",
     "● experieced coder in js and python",
-    "../interested-in"
-    "▲ Automation using AI"
-    "■ STEM (for kids)",
-    "✖ coding",
-    "../connect-with-me",
-    "■ linkedin.com/in/natejswenson",
-    "✖ natejswenson.github.io/my-resume",
-    "● natejswenson.com"
+    "▲ Interested in automation using AI, STEM (for kids), and Coding"
 ]
 
 # Shapes (circle, triangle, square, X)
