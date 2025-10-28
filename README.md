@@ -1,4 +1,4 @@
-![Typing Animation](output.gif)
+![Typing Animation](https://gitlab.com/natejswenson/natejswenson/-/raw/main/output.gif)
 
 ---
 
