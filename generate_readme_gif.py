@@ -28,8 +28,8 @@ LINES = [
     "● nate swenson:",
     "▲ Operations Engineer @ goodleap",
     "■ AI Enthusiast",
-    "✖ Contious Learner",
-    "● experieced coder in js and python",
+    "✖ Continuous Learner",
+    "● experienced coder in js and python",
     "▲ Interested in automation using AI, STEM (for kids), and Coding"
 ]
 
@@ -41,7 +41,8 @@ def get_font(size):
     font_paths = [
         "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf",
         "/usr/share/fonts/truetype/liberation/LiberationMono-Regular.ttf",
-        "/System/Library/Fonts/Courier.dfont",
+        "/System/Library/Fonts/Menlo.ttc",
+        "/System/Library/Fonts/Courier.ttc",
         "/usr/share/fonts/truetype/ubuntu/UbuntuMono-R.ttf",
     ]
 
