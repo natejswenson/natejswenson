@@ -6,14 +6,18 @@ const read = (f) => {
   return fs.existsSync(p) ? fs.readFileSync(p, 'utf8') : '';
 };
 
+// Every tile is full width. GitHub styles img[align=left] with
+// padding-right:20px under box-sizing:content-box, so a 50% tile measures
+// 50%+20px and two of them wrap instead of pairing. Measured on the live
+// page; a partial width silently breaks the layout.
 const TILES = [
   { name: 'masthead', width: '100%', href: 'https://natejswenson.com' },
-  { name: 'card-001', width: '50%', href: 'https://github.com/natejswenson/local-fitness' },
-  { name: 'card-002', width: '50%', href: 'https://github.com/natejswenson/traefik-local-cli' },
-  { name: 'card-003', width: '50%', href: 'https://github.com/natejswenson/claude-skills' },
-  { name: 'card-004', width: '50%', href: 'https://github.com/natejswenson/local-budget' },
-  { name: 'colophon-l', width: '50%', href: 'https://natejswenson.com' },
-  { name: 'colophon-r', width: '50%', href: 'https://linkedin.com/in/natejswenson' },
+  { name: 'row-001', width: '100%', href: 'https://github.com/natejswenson/local-fitness' },
+  { name: 'row-002', width: '100%', href: 'https://github.com/natejswenson/traefik-local-cli' },
+  { name: 'row-003', width: '100%', href: 'https://github.com/natejswenson/claude-skills' },
+  { name: 'row-004', width: '100%', href: 'https://github.com/natejswenson/local-budget' },
+  { name: 'colophon-a', width: '100%', href: 'https://natejswenson.com' },
+  { name: 'colophon-b', width: '100%', href: 'https://linkedin.com/in/natejswenson' },
 ];
 
 describe('README.md — tiled, fully clickable PRESS page', () => {
@@ -55,14 +59,14 @@ describe('README.md — tiled, fully clickable PRESS page', () => {
     expect(readme).not.toMatch(/gitlab\.com/i);
   });
 
-  test('should span exactly two full rows of columns plus the masthead', () => {
+  test('should size every tile to full width', () => {
     const widths = [...readme.matchAll(/width="(\d+)%"/g)].map((m) => Number(m[1]));
-    expect(widths.filter((w) => w === 100).length).toBe(1);
-    expect(widths.filter((w) => w === 50).length).toBe(6);
+    expect(widths.length).toBe(TILES.length);
+    expect(widths.every((w) => w === 100)).toBe(true);
   });
 
   test('should not fall back to the retired PNG artifacts', () => {
-    expect(readme).not.toMatch(/output\.gif|banner\.png|profile\.svg|card-\d{3}\.png/);
+    expect(readme).not.toMatch(/output\.gif|banner\.png|profile\.svg|card-\d{3}\.(png|svg)/);
   });
 
   // Tile text lives in SVG loaded through <img>, so alt text is the only
@@ -145,7 +149,7 @@ describe('PRESS tiles — brand compliance', () => {
   // The accent law: orange is a signature, not a scheme. A card spends it
   // once, on its ledger numeral. Counted as drawn elements rather than hex
   // occurrences, so a stylesheet rule is not mistaken for an ink mark.
-  test.each(svgs.filter((s) => s.name.startsWith('card')))(
+  test.each(svgs.filter((s) => s.name.startsWith('row')))(
     '$name should spend the accent on exactly one element',
     ({ svg }) => {
       const marks = svg.match(/<(?:text|tspan)[^>]*class="[^"]*(?:accent|cardno)[^"]*"/g) || [];

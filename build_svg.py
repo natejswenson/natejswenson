@@ -12,21 +12,28 @@ Two constraints fight each other here.
    full-page SVG is seamless but entirely unclickable.
 
 The resolution is `align="left"`, which survives sanitization and maps to
-`float:left`. Floated images are out of normal flow, so they tile edge to
+`float:left`. Floated images are out of normal flow, so they stack edge to
 edge with none of the line-height gaps that stacked inline images get.
-That means the page can be sliced into pieces -- each its own <a> -- and
-still read as one continuous document.
+Measured in the browser against the real page: consecutive floats land
+exactly one tile height apart, zero gap. That means the page can be cut
+into pieces -- each its own <a> -- and still read as one document.
 
-So the layout is designed as one 1200-wide page and then cut:
+Every tile is full width, and that is forced, not a preference. GitHub
+styles `img[align=left]` with `padding-right:20px` under `box-sizing:
+content-box`, so a 50% tile measures `50% + 20px`. Two of them overflow
+any container and wrap, which is exactly how the earlier two-column grid
+broke. Full-width tiles absorb the stray 20px as transparent overflow past
+the margin, where nothing shows.
 
-    masthead            1200   -> natejswenson.com
-    card 001 | card 002  600x2 -> repo, repo
-    card 003 | card 004  600x2 -> repo, repo
-    colophon L | R       600x2 -> natejswenson.com, linkedin
+So the page is a single column, which is also what the site does -- its
+`.entry-list` is a numbered ledger, not a grid:
 
-Gutters and margins live *inside* the pieces, so the cuts fall on empty
-paper and the seams are invisible. Each piece embeds only the glyphs it
-actually sets, subset to woff2, since an <img> SVG cannot fetch fonts.
+    masthead      -> natejswenson.com
+    ledger 001-004 -> one repo each
+    colophon x2   -> natejswenson.com, linkedin
+
+Each piece embeds only the glyphs it actually sets, subset to woff2, since
+an <img> SVG cannot fetch fonts.
 """
 
 import base64
@@ -55,15 +62,19 @@ FACES = {
 }
 
 # --- Page geometry ----------------------------------------------------------
+# Every tile is W wide. See the module docstring for why partial widths are
+# not an option.
 W = 1200            # full design width
-HALF = W // 2       # a card column
 PAD = 64            # outer page margin
-GUTTER = 28         # space between the two columns
-INNER = GUTTER // 2  # half-gutter, carried inside each column piece
 RULE_HEAVY = 10
 RULE_MED = 6
-CARD_PAD = 30
-ROW_GAP = 28
+RULE_LEDGER = 2     # the divider between ledger rows, per the site's entry-list
+
+# Ledger row internals: identity stacked at the left, commentary at the right.
+ROW_H = 168
+COL_REPO = PAD              # numeral, repo name, stack
+COL_DESC = 500              # the description block
+COL_DESC_W = W - PAD - COL_DESC
 
 SITE = "https://natejswenson.com"
 LINKEDIN = "https://linkedin.com/in/natejswenson"
@@ -200,8 +211,8 @@ STYLES = {
     "standfirst": ("serif-italic", "font-size:22px;font-style:italic"),
     "section": ("display-bold", "font-size:20px;letter-spacing:.16em"),
     "cardno": ("display-bold", f"font-size:18px;letter-spacing:.14em;fill:{ACCENT}"),
-    "repo": ("display-black", "font-size:32px;letter-spacing:-.03em"),
-    "desc": ("serif-italic", "font-size:17px;font-style:italic"),
+    "repo": ("display-black", "font-size:34px;letter-spacing:-.03em"),
+    "desc": ("serif-italic", "font-size:18px;font-style:italic"),
     "stack": ("mono", f"font-size:15px;fill:{DIM}"),
     "colophon": ("display-bold", "font-size:19px;letter-spacing:.14em"),
     "tagline": ("serif-italic", f"font-size:19px;font-style:italic;fill:{DIM}"),
@@ -292,9 +303,9 @@ def build_masthead():
     y += 44
     b.append(txt(PAD, y, SECTION, "section"))
     used["section"] = set(SECTION)
-    y += 16
-    b.append(rect(PAD, y, W - PAD * 2, 2, INK))
-    y += 34
+    # No rule here: row-001 draws the divider, and two 2px rules a few pixels
+    # apart read as a printing error.
+    y += 30
 
     aria = ("Nate Swenson. Field notes. Building in public, agent-first. "
             "Senior DevOps Engineer at GoodLeap. Shipping AI agents that "
@@ -303,42 +314,29 @@ def build_masthead():
     return piece("masthead", W, y, b, used, aria)
 
 
-def card_height():
-    """Uniform across all four so the grid aligns, sized to the tallest
-    description plus the row gap that follows it."""
-    inner = HALF - PAD - INNER - CARD_PAD * 2
-    longest = max(len(wrap(c["desc"], FACE["serif-italic"], 17, inner)) for c in CARDS)
-    return RULE_MED + CARD_PAD + 28 + 34 + longest * 25 + 40 + CARD_PAD + ROW_GAP
-
-
-def build_card(idx, card):
-    """Left column carries the page margin on its left and a half-gutter on
-    its right; the right column mirrors it. The cut lands on empty paper."""
-    left_col = idx % 2 == 0
-    x0 = PAD if left_col else INNER
-    x1 = HALF - INNER if left_col else HALF - PAD
-    cw = x1 - x0
-    inner = cw - CARD_PAD * 2
-    h = card_height()
-
+def build_row(card):
+    """A full-width ledger row: numeral and name at the left, the commentary
+    in the middle, the stack right-aligned. Rows are separated by a hairline
+    ink rule, the way the site's entry-list separates entries."""
     b, used = [], {}
-    b.append(rect(x0, 0, cw, RULE_MED, INK))
-    y = RULE_MED + CARD_PAD + 22
+    b.append(rect(PAD, 0, W - PAD * 2, RULE_LEDGER, INK))
 
-    b.append(txt(x0 + CARD_PAD, y, card["no"], "cardno"))
+    b.append(txt(COL_REPO, 54, card["no"], "cardno"))
     used["cardno"] = set(card["no"])
-    y += 34
-    b.append(txt(x0 + CARD_PAD, y, card["repo"], "repo"))
+    b.append(txt(COL_REPO, 96, card["repo"], "repo"))
     used["repo"] = set(card["repo"])
-    y += 34
-    for line in wrap(card["desc"], FACE["serif-italic"], 17, inner):
-        b.append(txt(x0 + CARD_PAD, y, line, "desc"))
-        y += 25
+
+    y = 52
+    for line in wrap(card["desc"], FACE["serif-italic"], 18, COL_DESC_W):
+        b.append(txt(COL_DESC, y, line, "desc"))
+        y += 27
     used["desc"] = set(card["desc"])
 
-    sy = h - ROW_GAP - CARD_PAD
-    sx = x0 + CARD_PAD
+    # Stack sits under the repo name, in the identity column. Right-aligning
+    # it against the margin put it hard alongside the description's last
+    # line, which read as a collision.
     fm = FACE["mono"]
+    sx, sy = COL_REPO, 130
     for j, item in enumerate(card["stack"]):
         if j:
             b.append(rect(sx + 7, sy - 8, 5, 5, DIM))
@@ -349,28 +347,32 @@ def build_card(idx, card):
 
     aria = (f"{card['no']}. {card['repo']}. {card['desc']} "
             f"Built with {', '.join(card['stack'])}.")
-    return piece(f"card-{card['no'].split('. ')[1]}", HALF, h, b, used, aria)
+    return piece(f"row-{card['no'].split('. ')[1]}", W, ROW_H, b, used, aria)
 
 
 def build_colophon():
-    """Two halves whose top rules meet at the cut to read as one rule."""
-    h = RULE_MED + 30 + 28
+    """Two full-width rows, so both contacts get their own link target. The
+    first carries the closing rule; the second sits under it."""
     paths = []
 
     b, used = [], {}
-    b.append(rect(PAD, 0, HALF - PAD, RULE_MED, INK))
-    b.append(txt(PAD, RULE_MED + 30, COLOPHON_L, "colophon"))
+    b.append(rect(PAD, 0, W - PAD * 2, RULE_MED, INK))
+    b.append(txt(PAD, RULE_MED + 40, COLOPHON_L, "colophon"))
+    b.append(txt(W - PAD, RULE_MED + 40, URL, "tagline", "end"))
     used["colophon"] = set(COLOPHON_L)
-    paths.append(piece("colophon-l", HALF, h, b, used,
+    used["tagline"] = set(URL)
+    paths.append(piece("colophon-a", W, RULE_MED + 62, b, used,
                        "Nate Swenson. Visit natejswenson.com."))
 
     b, used = [], {}
-    b.append(rect(0, 0, HALF - PAD, RULE_MED, INK))
-    b.append(txt(HALF - PAD, RULE_MED + 30, "linkedin.com/in/natejswenson",
-                 "tagline", "end"))
-    used["tagline"] = set("linkedin.com/in/natejswenson")
-    paths.append(piece("colophon-r", HALF, h, b, used,
-                       "Connect on LinkedIn at linkedin.com/in/natejswenson."))
+    b.append(txt(PAD, 26, "Shipped features, the tradeoffs, and what broke.",
+                 "tagline"))
+    b.append(txt(W - PAD, 26, "linkedin.com/in/natejswenson", "tagline", "end"))
+    used["tagline"] = set("Shipped features, the tradeoffs, and what broke."
+                          "linkedin.com/in/natejswenson")
+    paths.append(piece("colophon-b", W, 26 + PAD, b, used,
+                       "Building in public. Connect on LinkedIn at "
+                       "linkedin.com/in/natejswenson."))
     return paths
 
 
@@ -384,20 +386,21 @@ def tile(href, name, pct, alt):
 
 
 def build_readme():
-    """Every tile floats left, so they butt together with no gaps. The tags
-    must stay on adjacent lines with no blank line between them, or markdown
-    splits them into separate paragraphs and the float chain breaks."""
+    """Every tile floats left at full width, so they stack with no gaps. The
+    tags must stay on adjacent lines with no blank line between them, or
+    markdown splits them into separate paragraphs and the float chain breaks."""
     rows = [tile(SITE, "masthead", "100%",
                  "Nate Swenson, Senior DevOps Engineer at GoodLeap. Building in "
                  "public, agent-first: shipping AI agents that automate incident "
                  "analysis, debugging, and CI/CD decisions. Selected work:")]
     for card in CARDS:
         rows.append(tile(
-            card["href"], f"card-{card['no'].split('. ')[1]}", "50%",
+            card["href"], f"row-{card['no'].split('. ')[1]}", "100%",
             f"{card['no']} {card['repo']}. {card['desc']} "
             f"Built with {', '.join(card['stack'])}."))
-    rows.append(tile(SITE, "colophon-l", "50%", "Nate Swenson. natejswenson.com"))
-    rows.append(tile(LINKEDIN, "colophon-r", "50%", "linkedin.com/in/natejswenson"))
+    rows.append(tile(SITE, "colophon-a", "100%", "Nate Swenson. natejswenson.com"))
+    rows.append(tile(LINKEDIN, "colophon-b", "100%",
+                     "Building in public. linkedin.com/in/natejswenson"))
     return "\n".join(rows) + "\n"
 
 
@@ -405,7 +408,7 @@ def main():
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     total = 0
     built = [build_masthead()]
-    built += [build_card(i, c) for i, c in enumerate(CARDS)]
+    built += [build_row(c) for c in CARDS]
     built += build_colophon()
     for path, size in built:
         total += size
