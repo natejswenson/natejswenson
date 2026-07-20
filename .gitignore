@@ -40,3 +40,6 @@ logs
 # Python
 __pycache__/
 *.py[cod]
+
+# Local build venv
+.venv-press/
