@@ -1,151 +1,140 @@
 const fs = require('fs');
 const path = require('path');
 
-describe('README.md — repo-focused profile', () => {
-  let readmeContent = '';
+const read = (f) => {
+  const p = path.join(__dirname, f);
+  return fs.existsSync(p) ? fs.readFileSync(p, 'utf8') : '';
+};
 
-  beforeAll(() => {
-    const readmePath = path.join(__dirname, 'README.md');
-    if (fs.existsSync(readmePath)) {
-      readmeContent = fs.readFileSync(readmePath, 'utf8');
-    }
+describe('README.md — a single PRESS document', () => {
+  const readme = read('README.md');
+
+  test('should embed profile.svg and nothing else', () => {
+    expect(readme).toMatch(/!\[[^\]]*\]\([^)]*profile\.svg\)/);
+    const images = readme.match(/!\[[^\]]*\]\([^)]+\)/g) || [];
+    expect(images.length).toBe(1);
   });
 
-  describe('Header: PRESS masthead banner', () => {
-    test('should embed the PRESS banner image', () => {
-      expect(readmeContent).toMatch(/!\[[^\]]*\]\([^)]*banner\.png\)/);
-    });
-
-    test('should serve the banner from the GitHub raw URL, not GitLab', () => {
-      expect(readmeContent).toMatch(
-        /raw\.githubusercontent\.com\/natejswenson\/natejswenson\/main\/banner\.png/,
-      );
-      expect(readmeContent).not.toMatch(/gitlab\.com/i);
-    });
-
-    test('should include descriptive alt text naming Nate Swenson', () => {
-      expect(readmeContent).toMatch(/!\[[^\]]*nate swenson[^\]]*\]/i);
-    });
+  test('should serve the SVG from the GitHub raw URL, not GitLab', () => {
+    expect(readme).toMatch(
+      /raw\.githubusercontent\.com\/natejswenson\/natejswenson\/main\/profile\.svg/,
+    );
+    expect(readme).not.toMatch(/gitlab\.com/i);
   });
 
-  describe('Selected work section', () => {
-    test('should have a Selected work heading', () => {
-      expect(readmeContent).toMatch(/##\s+.*Selected work/i);
-    });
-
-    // Cards are rendered as PRESS images because GitHub strips CSS from
-    // markdown, so each entry is a linked card rather than a heading.
-    const projects = [
-      { repo: 'local-fitness', card: 'card-001.png' },
-      { repo: 'traefik-local-cli', card: 'card-002.png' },
-      { repo: 'claude-skills', card: 'card-003.png' },
-      { repo: 'local-budget', card: 'card-004.png' },
-    ];
-
-    test.each(projects)('should link the $card card to the $repo repository', ({ repo, card }) => {
-      const link = new RegExp(
-        `<a href="https://github\\.com/natejswenson/${repo}">\\s*<img[^>]*${card.replace('.', '\\.')}`,
-      );
-      expect(readmeContent).toMatch(link);
-    });
-
-    test('should no longer feature the retired llm-token-calculator entry', () => {
-      expect(readmeContent).not.toMatch(/llm-token-calculator/);
-    });
-
-    test('should feature exactly the four curated repositories', () => {
-      const cards = readmeContent.match(/assets\/cards\/card-\d{3}\.png/g) || [];
-      // Each card appears once, in a src attribute.
-      expect(cards.length).toBe(projects.length);
-    });
-
-    test('should serve every card from the GitHub raw URL', () => {
-      const srcs = readmeContent.match(/src="([^"]*card-\d{3}\.png)"/g) || [];
-      expect(srcs.length).toBe(projects.length);
-      srcs.forEach((src) => {
-        expect(src).toContain('raw.githubusercontent.com/natejswenson/natejswenson/main/');
-      });
-    });
-
-    // The card text lives in a PNG, so alt text is the only thing a screen
-    // reader or GitHub search can see. It has to carry the real content.
-    test('should carry descriptive alt text naming each repo and its stack', () => {
-      const alts = [...readmeContent.matchAll(/alt="([^"]+)"/g)].map((m) => m[1]);
-      const cardAlts = alts.filter((a) => /^No\. \d{3}/.test(a));
-      expect(cardAlts.length).toBe(projects.length);
-      cardAlts.forEach((alt) => {
-        expect(alt.length).toBeGreaterThan(80);
-        expect(alt).toMatch(/Built with .+\./);
-      });
-      projects.forEach(({ repo }) => {
-        expect(cardAlts.some((a) => a.includes(repo))).toBe(true);
-      });
-    });
-
-    test('should describe the tech stack for each project', () => {
-      expect(readmeContent).toMatch(/MCP/);
-      expect(readmeContent).toMatch(/Claude Code/);
-      expect(readmeContent).toMatch(/Flask/);
-      expect(readmeContent).toMatch(/Docker/);
-    });
+  test('should not fall back to the retired PNG artifacts', () => {
+    expect(readme).not.toMatch(/output\.gif|banner\.png|card-\d{3}\.png/);
   });
 
-  describe('Connect footer', () => {
-    test('should include the LinkedIn profile link', () => {
-      expect(readmeContent).toMatch(/linkedin\.com\/in\/natejswenson/);
+  // The page is one image, so alt text is the entire accessible and
+  // searchable surface. It has to carry every repo, stack, and contact.
+  describe('alt text carries the whole page', () => {
+    const alt = (readme.match(/!\[([^\]]*)\]/) || [, ''])[1];
+
+    test('should be substantial prose, not a label', () => {
+      expect(alt.length).toBeGreaterThan(400);
     });
 
-    test('should include the personal website link', () => {
-      expect(readmeContent).toMatch(/natejswenson\.com/);
+    test.each(['local-fitness', 'traefik-local-cli', 'claude-skills', 'local-budget'])(
+      'should name the %s project',
+      (repo) => expect(alt).toContain(repo),
+    );
+
+    test.each(['MCP', 'Claude Code', 'Flask', 'Docker', 'SQLite'])(
+      'should name the %s technology',
+      (tech) => expect(alt).toContain(tech),
+    );
+
+    test('should name Nate and his role', () => {
+      expect(alt).toMatch(/Nate Swenson/);
+      expect(alt).toMatch(/Senior DevOps Engineer/);
     });
 
-    test('should include a collaboration call-to-action', () => {
-      expect(readmeContent).toMatch(/collaborat|build something|connect/i);
+    test('should include both contact links', () => {
+      expect(alt).toMatch(/natejswenson\.com/);
+      expect(alt).toMatch(/linkedin\.com\/in\/natejswenson/);
     });
   });
+});
 
-  describe('Leanness: no third-party stat widgets', () => {
-    test('should not depend on github-readme-stats', () => {
-      expect(readmeContent).not.toMatch(/github-readme-stats\.vercel\.app/i);
-    });
+describe('profile.svg — PRESS brand compliance', () => {
+  const svg = read('profile.svg');
 
-    test('should not embed streak-stats widgets', () => {
-      expect(readmeContent).not.toMatch(/streak-stats/i);
-    });
+  test('should exist and be a self-contained SVG', () => {
+    expect(svg).toMatch(/^<svg[^>]*xmlns="http:\/\/www\.w3\.org\/2000\/svg"/);
+    expect(svg).toMatch(/<\/svg>$/);
   });
 
-  describe('PRESS brand compliance', () => {
-    test('should carry no emoji, since PRESS is typographic', () => {
-      // Pictographic + dingbat ranges. Excludes the U+00B7 separator and the
-      // typographic punctuation the brand does use.
-      const emoji = readmeContent.match(
-        /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}\u{2190}-\u{21FF}]/gu,
-      );
-      expect(emoji).toBeNull();
-    });
+  // GitHub loads the SVG through <img>, which is an isolated context that
+  // cannot fetch anything. Every asset must be inlined or it renders in a
+  // fallback face.
+  test('should reference no external resources', () => {
+    const external = svg.match(/(?:href|src|url)\(?["']?https?:\/\//g) || [];
+    expect(external).toEqual([]);
+  });
 
-    test('should not use shields.io badges, which PRESS bans as pills', () => {
-      expect(readmeContent).not.toMatch(/img\.shields\.io/i);
+  test('should embed all four brand faces as woff2 data URIs', () => {
+    const faces = svg.match(/@font-face\{font-family:'([^']+)'/g) || [];
+    expect(faces.length).toBe(4);
+    expect((svg.match(/data:font\/woff2;base64,/g) || []).length).toBe(4);
+  });
+
+  test('should style with real CSS, not per-element attributes', () => {
+    expect(svg).toMatch(/<style>/);
+    expect(svg).toMatch(/letter-spacing:/);
+  });
+
+  describe('tokens', () => {
+    const TOKENS = {
+      paper: '#F5F0E6',
+      ink: '#181510',
+      dim: '#6E675C',
+      accent: '#E8501F',
+    };
+
+    test.each(Object.entries(TOKENS))('should use the canonical %s token', (_n, hex) => {
+      expect(svg).toContain(hex);
     });
 
     test('should not reference any retired-palette color', () => {
-      // The pre-PRESS palette: red, yellow, teal, blue.
-      expect(readmeContent).not.toMatch(/df0024|f3c300|00ab9f|2e6db4/i);
+      expect(svg).not.toMatch(/df0024|f3c300|00ab9f|2e6db4/i);
     });
 
-    test('should number Selected work entries as ledger rows', () => {
-      const entries = readmeContent.match(/alt="No\. \d{3} /g) || [];
-      expect(entries.length).toBe(4);
+    // The accent law: orange is a signature, not a scheme. One headline
+    // pivot plus the stamp plus one ledger numeral per card.
+    test('should spend the accent sparingly', () => {
+      const uses = (svg.match(/E8501F/gi) || []).length;
+      expect(uses).toBeGreaterThan(0);
+      expect(uses).toBeLessThanOrEqual(6);
     });
   });
 
-  describe('Markdown health', () => {
-    test('should be non-empty', () => {
-      expect(readmeContent.length).toBeGreaterThan(500);
+  describe('content', () => {
+    test.each(['local-fitness', 'traefik-local-cli', 'claude-skills', 'local-budget'])(
+      'should set the %s entry',
+      (repo) => expect(svg).toContain(`>${repo}<`),
+    );
+
+    test('should no longer feature the retired llm-token-calculator entry', () => {
+      expect(svg).not.toMatch(/llm-token-calculator/);
     });
 
-    test('should use valid markdown links', () => {
-      expect(readmeContent).toMatch(/\[.+\]\(.+\)/);
+    test('should number the entries as ledger rows', () => {
+      const nos = svg.match(/>No\. \d{3}</g) || [];
+      // Four cards plus the masthead eyebrow.
+      expect(nos.length).toBe(5);
     });
+
+    test('should carry no emoji, since PRESS is typographic', () => {
+      const emoji = svg.match(
+        /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}]/gu,
+      );
+      expect(emoji).toBeNull();
+    });
+  });
+
+  test('should stay small enough to load fast', () => {
+    const kb = Buffer.byteLength(svg, 'utf8') / 1024;
+    expect(kb).toBeLessThan(120);
   });
 });
