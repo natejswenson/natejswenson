@@ -2,48 +2,12 @@
 
 ## Selected work
 
-<table>
-<tr>
-<td width="50%" valign="top">
-
-### No. 001 · [local-fitness-dude](https://github.com/natejswenson/local-fitness-dude)
-
-Agent-first fitness coach. Pulls Garmin data into a local SQLite database and exposes deterministic training-load math (CTL / ATL / TSB) to Claude over MCP.
-
-`Python` · `MCP` · `SQLite` · `Flask`
-
-</td>
-<td width="50%" valign="top">
-
-### No. 002 · [traefik-local-cli](https://github.com/natejswenson/traefik-local-cli)
-
-Onboards any local app to a hardened Traefik proxy at `<app>.internal`, driven by a bundled Claude Code skill with hard pass/fail gates.
-
-`Bash` · `Claude Code` · `Docker`
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-### No. 003 · [claude-skills](https://github.com/natejswenson/claude-skills)
-
-Monorepo of independently-released Claude Code productivity skills: devlog, ghostwriter, resume, github-stats. Namespaced releases and path-filtered CI.
-
-`JavaScript` · `Python` · `Bash`
-
-</td>
-<td width="50%" valign="top">
-
-### No. 004 · [llm-token-calculator](https://github.com/natejswenson/llm-token-calculator)
-
-Token-counting web app across OpenAI and Anthropic models. Flask backend, security-hardened, WCAG 2.1 AA, dark-mode UI.
-
-`Python` · `Flask` · `JavaScript`
-
-</td>
-</tr>
-</table>
+<p>
+<a href="https://github.com/natejswenson/local-fitness"><img width="48%" src="https://raw.githubusercontent.com/natejswenson/natejswenson/main/assets/cards/card-001.png" alt="No. 001 local-fitness — Agent-first fitness coach. Pulls Garmin data into a local SQLite database and exposes deterministic training-load math (CTL / ATL / TSB) to Claude over MCP. Built with Python, MCP, SQLite, Flask."></a>
+<a href="https://github.com/natejswenson/traefik-local-cli"><img width="48%" src="https://raw.githubusercontent.com/natejswenson/natejswenson/main/assets/cards/card-002.png" alt="No. 002 traefik-local-cli — Onboards any local app to a hardened Traefik proxy at app.internal, driven by a bundled Claude Code skill with hard pass/fail gates. Built with Bash, Claude Code, Docker."></a>
+<a href="https://github.com/natejswenson/claude-skills"><img width="48%" src="https://raw.githubusercontent.com/natejswenson/natejswenson/main/assets/cards/card-003.png" alt="No. 003 claude-skills — Monorepo of independently-released Claude Code productivity skills: devlog, ghostwriter, resume, github-stats. Namespaced releases and path-filtered CI. Built with JavaScript, Python, Bash."></a>
+<a href="https://github.com/natejswenson/local-budget"><img width="48%" src="https://raw.githubusercontent.com/natejswenson/natejswenson/main/assets/cards/card-004.png" alt="No. 004 local-budget — Local-first Wells Fargo spending agent. One SQLite database behind a column-level authorizer, exposed through a stdio MCP server and no-code Claude skills. Built with Python, MCP, SQLite, Docker."></a>
+</p>
 
 ---
 

@@ -33,28 +33,60 @@ describe('README.md — repo-focused profile', () => {
       expect(readmeContent).toMatch(/##\s+.*Selected work/i);
     });
 
+    // Cards are rendered as PRESS images because GitHub strips CSS from
+    // markdown, so each entry is a linked card rather than a heading.
     const projects = [
-      'local-fitness-dude',
-      'traefik-local-cli',
-      'claude-skills',
-      'llm-token-calculator',
+      { repo: 'local-fitness', card: 'card-001.png' },
+      { repo: 'traefik-local-cli', card: 'card-002.png' },
+      { repo: 'claude-skills', card: 'card-003.png' },
+      { repo: 'local-budget', card: 'card-004.png' },
     ];
 
-    test.each(projects)('should link to the %s repository', (repo) => {
-      const url = `https://github.com/natejswenson/${repo}`;
-      expect(readmeContent).toContain(`[${repo}](${url})`);
+    test.each(projects)('should link the $card card to the $repo repository', ({ repo, card }) => {
+      const link = new RegExp(
+        `<a href="https://github\\.com/natejswenson/${repo}">\\s*<img[^>]*${card.replace('.', '\\.')}`,
+      );
+      expect(readmeContent).toMatch(link);
+    });
+
+    test('should no longer feature the retired llm-token-calculator entry', () => {
+      expect(readmeContent).not.toMatch(/llm-token-calculator/);
     });
 
     test('should feature exactly the four curated repositories', () => {
-      const headingMatches = readmeContent.match(/###\s+.*\[[^\]]+\]\(https:\/\/github\.com\/natejswenson\//g) || [];
-      expect(headingMatches.length).toBe(projects.length);
+      const cards = readmeContent.match(/assets\/cards\/card-\d{3}\.png/g) || [];
+      // Each card appears once, in a src attribute.
+      expect(cards.length).toBe(projects.length);
+    });
+
+    test('should serve every card from the GitHub raw URL', () => {
+      const srcs = readmeContent.match(/src="([^"]*card-\d{3}\.png)"/g) || [];
+      expect(srcs.length).toBe(projects.length);
+      srcs.forEach((src) => {
+        expect(src).toContain('raw.githubusercontent.com/natejswenson/natejswenson/main/');
+      });
+    });
+
+    // The card text lives in a PNG, so alt text is the only thing a screen
+    // reader or GitHub search can see. It has to carry the real content.
+    test('should carry descriptive alt text naming each repo and its stack', () => {
+      const alts = [...readmeContent.matchAll(/alt="([^"]+)"/g)].map((m) => m[1]);
+      const cardAlts = alts.filter((a) => /^No\. \d{3}/.test(a));
+      expect(cardAlts.length).toBe(projects.length);
+      cardAlts.forEach((alt) => {
+        expect(alt.length).toBeGreaterThan(80);
+        expect(alt).toMatch(/Built with .+\./);
+      });
+      projects.forEach(({ repo }) => {
+        expect(cardAlts.some((a) => a.includes(repo))).toBe(true);
+      });
     });
 
     test('should describe the tech stack for each project', () => {
-      expect(readmeContent).toMatch(/`MCP`/);
-      expect(readmeContent).toMatch(/`Claude Code`/);
-      expect(readmeContent).toMatch(/`Flask`/);
-      expect(readmeContent).toMatch(/`Docker`/);
+      expect(readmeContent).toMatch(/MCP/);
+      expect(readmeContent).toMatch(/Claude Code/);
+      expect(readmeContent).toMatch(/Flask/);
+      expect(readmeContent).toMatch(/Docker/);
     });
   });
 
@@ -102,7 +134,7 @@ describe('README.md — repo-focused profile', () => {
     });
 
     test('should number Selected work entries as ledger rows', () => {
-      const entries = readmeContent.match(/###\s+No\.\s+\d{3}\s+·/g) || [];
+      const entries = readmeContent.match(/alt="No\. \d{3} /g) || [];
       expect(entries.length).toBe(4);
     });
   });
