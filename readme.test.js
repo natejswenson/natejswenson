@@ -11,14 +11,14 @@ describe('README.md — repo-focused profile', () => {
     }
   });
 
-  describe('Header: typing animation', () => {
-    test('should embed the typing animation GIF', () => {
-      expect(readmeContent).toMatch(/!\[[^\]]*\]\([^)]*output\.gif\)/);
+  describe('Header: PRESS masthead banner', () => {
+    test('should embed the PRESS banner image', () => {
+      expect(readmeContent).toMatch(/!\[[^\]]*\]\([^)]*banner\.png\)/);
     });
 
-    test('should serve the GIF from the GitHub raw URL, not GitLab', () => {
+    test('should serve the banner from the GitHub raw URL, not GitLab', () => {
       expect(readmeContent).toMatch(
-        /raw\.githubusercontent\.com\/natejswenson\/natejswenson\/main\/output\.gif/,
+        /raw\.githubusercontent\.com\/natejswenson\/natejswenson\/main\/banner\.png/,
       );
       expect(readmeContent).not.toMatch(/gitlab\.com/i);
     });
@@ -28,9 +28,9 @@ describe('README.md — repo-focused profile', () => {
     });
   });
 
-  describe('Featured Projects section', () => {
-    test('should have a Featured Projects heading', () => {
-      expect(readmeContent).toMatch(/##\s+.*Featured Projects/i);
+  describe('Selected work section', () => {
+    test('should have a Selected work heading', () => {
+      expect(readmeContent).toMatch(/##\s+.*Selected work/i);
     });
 
     const projects = [
@@ -79,6 +79,31 @@ describe('README.md — repo-focused profile', () => {
 
     test('should not embed streak-stats widgets', () => {
       expect(readmeContent).not.toMatch(/streak-stats/i);
+    });
+  });
+
+  describe('PRESS brand compliance', () => {
+    test('should carry no emoji, since PRESS is typographic', () => {
+      // Pictographic + dingbat ranges. Excludes the U+00B7 separator and the
+      // typographic punctuation the brand does use.
+      const emoji = readmeContent.match(
+        /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}\u{2190}-\u{21FF}]/gu,
+      );
+      expect(emoji).toBeNull();
+    });
+
+    test('should not use shields.io badges, which PRESS bans as pills', () => {
+      expect(readmeContent).not.toMatch(/img\.shields\.io/i);
+    });
+
+    test('should not reference any retired-palette color', () => {
+      // The pre-PRESS palette: red, yellow, teal, blue.
+      expect(readmeContent).not.toMatch(/df0024|f3c300|00ab9f|2e6db4/i);
+    });
+
+    test('should number Selected work entries as ledger rows', () => {
+      const entries = readmeContent.match(/###\s+No\.\s+\d{3}\s+·/g) || [];
+      expect(entries.length).toBe(4);
     });
   });
 
