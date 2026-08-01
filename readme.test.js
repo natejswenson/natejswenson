@@ -170,7 +170,12 @@ describe('PRESS tiles — brand compliance', () => {
 
   test('should carry no emoji anywhere, since PRESS is typographic', () => {
     const all = svgs.map((s) => s.svg).join('');
-    expect(all.match(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}]/gu)).toBeNull();
+    // U+FE0F is a variation selector: it COMBINES with the preceding character,
+    // so inside a character class it silently means "the selector on its own"
+    // rather than "an emoji-presentation glyph". Alternation says the same
+    // thing without misleading anyone (and satisfies no-misleading-character-class).
+    const emoji = /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]|\u{FE0F}/gu;
+    expect(all.match(emoji)).toBeNull();
   });
 
   test('should no longer feature the retired llm-token-calculator entry', () => {
