@@ -46,6 +46,6 @@ jobs:
       # Pinned to an exact version rather than @latest so a token change upstream
       # surfaces as a failing check to adopt deliberately. `press propagate`
       # bumps this pin and re-emits in the same PR when the brand moves.
-      #   npx -y @natjswenson/press@0.6.1 emit --repo .
+      #   npx -y @natjswenson/press@0.7.0 emit --repo .
       - name: Brand tokens in sync (press)
-        run: npx -y @natjswenson/press@0.6.1 check --repo .
+        run: npx -y @natjswenson/press@0.7.0 check --repo .
